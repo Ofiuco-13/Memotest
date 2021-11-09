@@ -26,8 +26,24 @@ const obtenerDatos = () => [
 
 const aleatorizar = () => {
   const datos = obtenerDatos();
-  datos.sort( () => Math.random() - 0.5);
-  console.log(datos);
+  datos.sort(() => Math.random() - 0.5);
+  return datos;
 };
 
-aleatorizar();
+const generarCartas = () => {
+  const datos = aleatorizar();
+  datos.forEach((item) => {
+    const $carta = document.createElement("div");
+    const $cara = document.createElement("img");
+    const $reves = document.createElement("div");
+    $carta.classList = "carta";
+    $cara.classList = "cara";
+    $reves.classList = "reves";
+
+    $seccion.appendChild($carta);
+    $carta.appendChild($cara);
+    $carta.appendChild($reves);
+  });
+};
+
+generarCartas();
