@@ -40,3 +40,7 @@ section {
   background: white;
   backface-visibility: hidden; /*determina si la cara posterior de un elemento es visible de frente al usuario.*/
 }
+
+.girarCarta {
+  transform: rotateY(180deg);
+}
