@@ -41,6 +41,7 @@ const generarCartas = () => {
     $reves.classList = "reves";
     //adjuntar la información a las tarjetas
     $cara.src = item.imgSrc;
+    $carta.setAttribute("name", item.name);
 
     $seccion.appendChild($carta);
     $carta.appendChild($cara);
@@ -48,9 +49,27 @@ const generarCartas = () => {
 
     $carta.addEventListener("click", (e) => {
       $carta.classList.toggle("girarCarta");
+      chequearCartas(e);
     });
   });
 };
 
+const chequearCartas = (e) => {
+  console.log(e);
+  const cartaClickeada = e.target;
+  cartaClickeada.classList.add("girado");
+  const cartasGiradas = document.querySelectorAll(".girado");
+
+  if (cartasGiradas.length === 2) {
+    if (
+      cartasGiradas[0].getAttribute("name") ===
+      cartasGiradas[1].getAttribute("name")
+    ) {
+      console.log("partida");
+    } else {
+      console.log("fallaste");
+    }
+  }
+};
 
 generarCartas();
