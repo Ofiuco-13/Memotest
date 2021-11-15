@@ -68,6 +68,10 @@ const chequearCartas = (e) => {
       console.log("partida");
     } else {
       console.log("fallaste");
+      cartasGiradas.forEach((carta) => {
+        carta.classList.remove("girado");
+        carta.classList.remove("girarCarta");
+      });
     }
   }
 };
