@@ -45,7 +45,12 @@ const generarCartas = () => {
     $seccion.appendChild($carta);
     $carta.appendChild($cara);
     $carta.appendChild($reves);
+
+    $carta.addEventListener("click", (e) => {
+      $carta.classList.toggle("girarCarta");
+    });
   });
 };
+
 
 generarCartas();

@@ -13,7 +13,6 @@ body {
   flex-direction: column;
 }
 
-/* cuatro columnas con cuatro filas, de 8 rem cada unas */
 section {
   display: grid;
   grid-template-columns: repeat(4, 8rem);
@@ -24,8 +23,8 @@ section {
 
 .carta {
   position: relative;
-  transform-style: preserve-3d; /*establece si el elemento hijo esta posicionado en el espacio 3D (preserve-3d)*/
-  transition: all 2s cubic-bezier(0.175, 0, 885, 0.32, 1.275);
+  transform-style: preserve-3d; 
+  transition: transform 1s;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
 }
 
@@ -38,7 +37,7 @@ section {
 
 .reves {
   background: white;
-  backface-visibility: hidden; /*determina si la cara posterior de un elemento es visible de frente al usuario.*/
+  backface-visibility: hidden; 
 }
 
 .girarCarta {
