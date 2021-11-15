@@ -40,7 +40,7 @@ const generarCartas = () => {
     $cara.classList = "cara";
     $reves.classList = "reves";
     //adjuntar la información a las tarjetas
-    $cara.src = item.imgSrc
+    $cara.src = item.imgSrc;
 
     $seccion.appendChild($carta);
     $carta.appendChild($cara);
