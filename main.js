@@ -66,6 +66,10 @@ const chequearCartas = (e) => {
       cartasGiradas[1].getAttribute("name")
     ) {
       console.log("partida");
+      cartasGiradas.forEach((carta) => {
+        carta.classList.remove("girado");
+        carta.style.pointerEvents = "none";
+      });
     } else {
       console.log("fallaste");
       cartasGiradas.forEach((carta) => {
