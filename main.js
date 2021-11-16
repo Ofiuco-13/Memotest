@@ -1,6 +1,6 @@
 const $seccion = document.querySelector("section");
 const $vidasDelJugador = document.querySelector("span");
-const vidasDelJugador = 10;
+let vidasDelJugador = 10;
 
 $vidasDelJugador.textContent = vidasDelJugador;
 
@@ -76,6 +76,8 @@ const chequearCartas = (e) => {
         carta.classList.remove("girado");
         setTimeout(() => carta.classList.remove("girarCarta"), 1000);
       });
+      vidasDelJugador--;
+      $vidasDelJugador.textContent = vidasDelJugador;
     }
   }
 };
