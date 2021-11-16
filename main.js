@@ -91,6 +91,9 @@ const resetear = () => {
   let cartas = document.querySelectorAll(".carta");
   datos.forEach((item, index) => {
     cartas[index].classList.remove("girarCarta");
+    cartas[index].style.pointerEvents = "all";
+    cartas[index].setAttribute("name", item.name);
+    caras[index].src = item.imgSrc;
   });
   vidasDelJugador = 10;
   $vidasDelJugador.textContent = vidasDelJugador;
