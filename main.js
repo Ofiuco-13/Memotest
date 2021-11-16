@@ -92,6 +92,8 @@ const resetear = () => {
   datos.forEach((item, index) => {
     cartas[index].classList.remove("girarCarta");
   });
+  vidasDelJugador = 10;
+  $vidasDelJugador.textContent = vidasDelJugador;
 };
 
 generarCartas();
