@@ -70,7 +70,7 @@ const chequearCartas = (e) => {
       console.log("fallaste");
       cartasGiradas.forEach((carta) => {
         carta.classList.remove("girado");
-        carta.classList.remove("girarCarta");
+        setTimeout(() => carta.classList.remove("girarCarta"), 1000);
       });
     }
   }
