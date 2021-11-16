@@ -78,8 +78,20 @@ const chequearCartas = (e) => {
       });
       vidasDelJugador--;
       $vidasDelJugador.textContent = vidasDelJugador;
+      if (vidasDelJugador === 0) {
+        resetear();
+      }
     }
   }
+};
+
+const resetear = () => {
+  let datos = aleatorizar();
+  let caras = document.querySelectorAll(".cara");
+  let cartas = document.querySelectorAll(".carta");
+  datos.forEach((item, index) => {
+    cartas[index].classList.remove("girarCarta");
+  });
 };
 
 generarCartas();
