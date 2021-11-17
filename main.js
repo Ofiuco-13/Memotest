@@ -4,7 +4,6 @@ let vidasDelJugador = 10;
 
 $vidasDelJugador.textContent = vidasDelJugador;
 
-//generar datos
 const obtenerDatos = () => [
   { imgSrc: "./images/beatles.jpeg", name: "beatles" },
   { imgSrc: "./images/blink182.jpeg", name: "blink182" },
@@ -24,11 +23,7 @@ const obtenerDatos = () => [
   { imgSrc: "./images/pinkfloyd.jpeg", name: "pink floyd" },
 ];
 
-const aleatorizar = () => {
-  const datos = obtenerDatos();
-  datos.sort(() => Math.random() - 0.5);
-  return datos;
-};
+generarCartas();
 
 const generarCartas = () => {
   const datos = aleatorizar();
@@ -54,24 +49,27 @@ const generarCartas = () => {
   });
 };
 
+const aleatorizar = () => {
+  const datos = obtenerDatos();
+  datos.sort(() => Math.random() - 0.5);
+  return datos;
+};
+
 const chequearCartas = (e) => {
-  console.log(e);
   const cartaClickeada = e.target;
   cartaClickeada.classList.add("girado");
   const cartasGiradas = document.querySelectorAll(".girado");
-
+  const girarCarta = document.querySelectorAll(".girarCarta");
   if (cartasGiradas.length === 2) {
     if (
       cartasGiradas[0].getAttribute("name") ===
       cartasGiradas[1].getAttribute("name")
     ) {
-      console.log("partida");
       cartasGiradas.forEach((carta) => {
         carta.classList.remove("girado");
         carta.style.pointerEvents = "none";
       });
     } else {
-      console.log("fallaste");
       cartasGiradas.forEach((carta) => {
         carta.classList.remove("girado");
         setTimeout(() => carta.classList.remove("girarCarta"), 1000);
@@ -79,24 +77,39 @@ const chequearCartas = (e) => {
       vidasDelJugador--;
       $vidasDelJugador.textContent = vidasDelJugador;
       if (vidasDelJugador === 0) {
+        perder();
         resetear();
       }
     }
   }
+  if (girarCarta.length === 16) {
+    ganar();
+    resetear();
+  }
 };
+
+function perder() {
+  alert("Perdiste");
+}
+
+function ganar() {
+  alert("Ganaste");
+}
 
 const resetear = () => {
   let datos = aleatorizar();
   let caras = document.querySelectorAll(".cara");
   let cartas = document.querySelectorAll(".carta");
+  $seccion.style.pointerEvents = "none";
   datos.forEach((item, index) => {
     cartas[index].classList.remove("girarCarta");
-    cartas[index].style.pointerEvents = "all";
-    cartas[index].setAttribute("name", item.name);
-    caras[index].src = item.imgSrc;
+    setTimeout(() => {
+      cartas[index].style.pointerEvents = "all";
+      cartas[index].setAttribute("name", item.name);
+      caras[index].src = item.imgSrc;
+      $seccion.style.pointerEvents = "all";
+    }, 1000);
   });
   vidasDelJugador = 10;
   $vidasDelJugador.textContent = vidasDelJugador;
 };
-
-generarCartas();
