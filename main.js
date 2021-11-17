@@ -23,8 +23,6 @@ const obtenerDatos = () => [
   { imgSrc: "./images/pinkfloyd.jpeg", name: "pink floyd" },
 ];
 
-generarCartas();
-
 const generarCartas = () => {
   const datos = aleatorizar();
   datos.forEach((item) => {
@@ -113,3 +111,5 @@ const resetear = () => {
   vidasDelJugador = 10;
   $vidasDelJugador.textContent = vidasDelJugador;
 };
+
+generarCartas();
